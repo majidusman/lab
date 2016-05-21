@@ -1,0 +1,112 @@
+#include<iostream>
+#include<string>
+#include<string.h>
+
+using namespace std;
+class music_band
+{
+	protected:
+		int c;
+		
+		
+};
+
+class metal:public music_band
+{
+	private:
+		int pyro;
+		
+	public:
+		void set_pyro(int a);
+		int get_pyro();
+		int get_m();
+		metal(int band_count,int no_pyro);
+		
+};
+
+
+class symphony:public music_band
+{
+	private:
+		int conductor;
+		int members;
+	public:
+		void set_conductor(int a);
+		int get_conductor();
+		int get_members();
+		int band_member();
+		symphony(int band_count,int no_condutor);
+		
+		
+};
+int symphony::get_members()
+{
+	return(conductor+c);
+}
+int metal::get_m()
+{
+	return (c+pyro);
+}
+int metal::get_pyro()
+{
+ 	return pyro;	
+}
+void metal::set_pyro(int a)
+{
+	pyro=a;
+}
+metal::metal(int band_count,int no_pyrotech)
+{
+	c=band_count;
+	pyro=no_pyrotech;
+}
+
+int symphony::get_conductor()
+{
+	return conductor;
+}
+void symphony::set_conductor(int a)
+{
+	conductor=a;
+}
+symphony::symphony(int band_count,int no_condutor)
+{
+	c=band_count;
+	conductor=no_condutor;
+}
+
+
+
+int main (void)
+{
+	
+	int a,b,add;
+	cout<<"Enter band members for symphony: ";
+	cin>>a;
+	cout<<"\nEnter band members for conductor: ";
+	cin>>b;
+	symphony x(a,b);
+	add=x.get_members();
+	cout<<"\nBand members of symphony "<<a<<" and conductor "<<b<<" are : "<<add<<endl;
+	int c;
+	cout<<"\nEnter new value for the conductor: ";
+	cin>>c;
+	x.set_conductor(c);
+	add=x.get_members();
+	cout<<"\nNow the total new members of symphony "<<a<<" and conductor "<<c<<" are : "<<add<<endl;
+	int d,e,f;
+	cout<<"\nEnter band members for metal: ";
+	cin>>d;
+	cout<<"\nEnter band members for pyro technicians: ";
+	cin>>e;
+	metal q(d,e);
+	add=q.get_m();
+	cout<<"\nBand members of metal "<<d<<" and pyro technicians "<<e<<" are : "<<add<<endl;
+	cout<<"\nEnter new value for the conductor: ";
+	cin>>f;
+	q.set_pyro(f);
+	add=q.get_m();
+	cout<<"\nNow the total new members of metal "<<d<<" and pyro technicians "<<f<<" are : "<<add<<endl;
+	return 0;
+	
+}
